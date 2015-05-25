@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox id="rootPane" fx:id="rootPane" styleClass="root-pane" prefHeight="600" prefWidth="400" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test.controller.WorldListingController">
+    <children>
+        <TextFlow id="regionFlow" fx:id="regionFlow" VBox.vgrow="NEVER">     
+            <children>    
+                <Text id="regionLabel" fx:id="regionLabel" styleClass="main-text" text="%choose.your.region" />
+            </children>
+        </TextFlow>
+        <HBox id="regionBox" fx:id="regionBox" styleClass="region-box">
+            <children>
+                <ToggleButton fx:id="usToggle" text="%region.us" mnemonicParsing="false" selected="true" styleClass="region-button">
+                    <toggleGroup>
+                        <ToggleGroup fx:id="regionSelectionGroup" />
+                    </toggleGroup>
+                </ToggleButton>
+                <Separator orientation="VERTICAL" prefHeight="-1" />
+                <ToggleButton fx:id="euToggle" text="%region.eu" mnemonicParsing="false" styleClass="region-button" toggleGroup="$regionSelectionGroup" selected="true" />
+            </children>
+        </HBox>        
+        <TextFlow id="languageFlow" fx:id="languageFlow" VBox.vgrow="NEVER">     
+            <children>    
+                <Text id="languageLabel" fx:id="languageLabel" styleClass="main-text" text="%choose.your.language" />
+            </children>
+        </TextFlow>
+        <HBox id="languageBox" fx:id="languageBox" styleClass="language-box">
+            <children>
+                <ToggleButton fx:id="enToggle" text="%language.english" mnemonicParsing="false" styleClass="language-button">
+                    <toggleGroup>
+                        <ToggleGroup fx:id="languageSelectionGroup" />
+                    </toggleGroup>
+                </ToggleButton>
+                <Separator orientation="VERTICAL" prefHeight="-1" />
+                <ToggleButton fx:id="frToggle" text="%language.french" mnemonicParsing="false" styleClass="language-button" toggleGroup="$languageSelectionGroup" selected="true" />
+                <Separator orientation="VERTICAL" prefHeight="-1" />
+                <ToggleButton fx:id="deToggle" text="%language.german" mnemonicParsing="false" styleClass="language-button" toggleGroup="$languageSelectionGroup" />
+                <Separator orientation="VERTICAL" prefHeight="-1" />
+                <ToggleButton fx:id="esToggle" text="%language.spanish" mnemonicParsing="false" styleClass="language-button" toggleGroup="$languageSelectionGroup" />
+            </children>
+        </HBox>        
+        <Label id="worldListLabel" fx:id="worldListLabel" text="%world.list" wrapText="true" />
+        <StackPane VBox.vgrow="ALWAYS">
+            <children>
+                <ListView id="worldListView" fx:id="worldListView"/>
+                <ProgressIndicator id="progressIndicator" fx:id="progressIndicator" maxHeight="64.0" maxWidth="64.0" />
+            </children>
+        </StackPane>        
+    </children>
+</VBox>
