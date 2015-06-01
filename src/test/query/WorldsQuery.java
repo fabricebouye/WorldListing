@@ -60,7 +60,7 @@ public enum WorldsQuery {
     }
 
     /**
-     * Récupère le nom d'un seul serveur.
+     * Récupère le nom de plusieurs serveurs.
      * @param languageCode Le code de la langue.
      * @param ids Les identifiants des mondes. Si aucun indentifiant est fourni,
      * les noms de tous les mondes sont retournés.
