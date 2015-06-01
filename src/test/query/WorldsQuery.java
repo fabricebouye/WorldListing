@@ -25,7 +25,7 @@ public enum WorldsQuery {
     /**
      * L'URL de base de cet endpoint.
      */
-    private static final String basecode = "https://api.guildwars2.com/v2/worlds"; // NOI18N.
+    private static final String BASECODE = "https://api.guildwars2.com/v2/worlds"; // NOI18N.
 
     /*
      * Récupère la liste de tous les identifiants des mondes.
@@ -33,7 +33,7 @@ public enum WorldsQuery {
      * @throws IOException En cas d'erreur.
      */
     public static List<Integer> list() throws IOException {
-        final JsonArray array = queryArray(basecode);
+        final JsonArray array = queryArray(BASECODE);
         final List<Integer> result = array.getValuesAs(JsonNumber.class)
                 .stream()
                 .map(value -> value.intValue())
@@ -53,7 +53,7 @@ public enum WorldsQuery {
      * @throws IOException En cas d'erreur.
      */
     public static Pair<Integer, String> worldName(final String languageCode, final int id) throws IOException {
-        final JsonObject value = queryObject(String.format("%s?id=%d&lang=%s", basecode, id, languageCode)); // NOI18N.
+        final JsonObject value = queryObject(String.format("%s?id=%d&lang=%s", BASECODE, id, languageCode)); // NOI18N.
         final String name = value.getString("name"); // NOI18N.
         final Pair<Integer, String> result = new Pair<>(id, name);
         return result;
@@ -73,7 +73,7 @@ public enum WorldsQuery {
      */
     public static Map<Integer, String> worldNames(final String languageCode, final int... ids) throws IOException {
         final String idsCode = idsToString(ids);
-        final JsonArray array = queryArray(String.format("%s?ids=%s&lang=%s", basecode, idsCode, languageCode)); // NOI18N.
+        final JsonArray array = queryArray(String.format("%s?ids=%s&lang=%s", BASECODE, idsCode, languageCode)); // NOI18N.
         final Map<Integer, String> result = new HashMap();
         array.getValuesAs(JsonObject.class)
                 .stream()
